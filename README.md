@@ -22,3 +22,13 @@ For this you can submit your response via. https://stackblitz.com/ and send us t
 
 create an empty HTML file with JavaScript function to group Employee ID from “activity[]” array: Test2.html
 
+Test 3 SQL:
+Provide the full set of SQLs and output for the following:
+1) Create a new table called “model”, and insert the following records, with an
+auto-incrementing key called “ID”
+2) write SQL statements to remove any records with duplicate make and model
+combinations from the table while keeping the record with the highest ID.
+
+Create sql file for this question: Test3.sql
+1) Create table query , and insert into query
+2) use select Max(ID) group by Make, Model to get all highest ID of each make and model combination, then delete the ID not in the select result
