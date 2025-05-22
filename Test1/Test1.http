@@ -1,0 +1,57 @@
+@Test1_HostAddress = http://localhost:5193
+
+### Get all users
+GET {{Test1_HostAddress}}/api/user
+Accept: application/json
+
+### Get user by ID
+GET {{Test1_HostAddress}}/api/user/1
+Accept: application/json
+
+### Get users by EmployeeID
+GET {{Test1_HostAddress}}/api/user/employee/CLGAXO
+Accept: application/json
+
+### Create a new user
+POST {{Test1_HostAddress}}/api/user
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userID": 102,
+  "employeeID": "EMP002",
+  "siteName": "Melbourne",
+  "businessUnitName": "Support",
+  "accountName": "Secondary",
+  "groupName": "B",
+  "categoryName": "Ops",
+  "typeName": "PartTime",
+  "date": "2025-05-22",
+  "duration": "4h",
+  "isProcessed": true
+}
+
+### Update an existing user
+PUT {{Test1_HostAddress}}/api/user/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userID": 101,
+  "employeeID": "EMP001",
+  "siteName": "Sydney Updated",
+  "businessUnitName": "Tech",
+  "accountName": "Main",
+  "groupName": "A",
+  "categoryName": "Dev",
+  "typeName": "FullTime",
+  "date": "2025-05-22",
+  "duration": "9h",
+  "isProcessed": true
+}
+
+### Delete a user
+DELETE {{Test1_HostAddress}}/api/user/1
+Accept: application/json
+
+###
