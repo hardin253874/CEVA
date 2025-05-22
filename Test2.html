@@ -1,0 +1,130 @@
+<html>
+<head>
+  <title>Test2</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    button { padding: 10px 20px; font-size: 16px; }
+    pre { background: #f0f0f0; padding: 15px; border-radius: 5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Test 2: JavaScript</h1>
+  <h2>Group Activities by EmployeeID</h2>
+  <button id="toggleButton" onclick="toggleGroupedActivities()">Run</button>
+  <pre id="output">Click the button to see results here.</pre>
+
+  <script>
+    // Original activity array
+    const activity = [
+      {
+        "ID": 64,
+        "UserID": 7,
+        "EmployeeID": "CLGAXO",
+        "SiteName": "MULGRAVE",
+        "BusinessUnitName": "Telstra Logistics - Melbourne",
+        "AccountName": "IBM AUSTRALIA LTD",
+        "GroupName": "Transport",
+        "CategoryName": "Activity - Productive",
+        "TypeName": "Transport - Freight Sorting",
+        "Date": "2018-02-14",
+        "Duration": "00:30",
+        "IsProcessed": false
+      },
+      {
+        "ID": 66,
+        "UserID": 7,
+        "EmployeeID": "CLGAXO",
+        "SiteName": "MULGRAVE",
+        "BusinessUnitName": "Telstra Logistics - Melbourne",
+        "AccountName": "IBM AUSTRALIA LTD",
+        "GroupName": "Picking",
+        "CategoryName": "Activity - Productive",
+        "TypeName": "Picking - Bulk",
+        "Date": "2018-02-15",
+        "Duration": "00:30",
+        "IsProcessed": false
+      },
+      {
+        "ID": 67,
+        "UserID": 7,
+        "EmployeeID": "CLGAXO",
+        "SiteName": "MULGRAVE",
+        "BusinessUnitName": "Telstra Logistics - Melbourne",
+        "AccountName": "IBM AUSTRALIA LTD",
+        "GroupName": "CPE RASS",
+        "CategoryName": "Activity - Productive",
+        "TypeName": "CPE RASS",
+        "Date": "2018-02-15",
+        "Duration": "00:15",
+        "IsProcessed": false
+      },
+      {
+        "ID": 71,
+        "UserID": 7,
+        "EmployeeID": "CLGAXO",
+        "SiteName": "MULGRAVE",
+        "BusinessUnitName": "Telstra Logistics - Melbourne",
+        "AccountName": "IBM AUSTRALIA LTD",
+        "GroupName": "Inventory",
+        "CategoryName": "Activity - Unproductive",
+        "TypeName": "Inventory Relocation's",
+        "Date": "2018-02-15",
+        "Duration": "01:30",
+        "IsProcessed": false
+      },
+      {
+        "ID": 72,
+        "UserID": 5,
+        "EmployeeID": "HENDERSA",
+        "SiteName": "MULGRAVE",
+        "BusinessUnitName": "Telstra Logistics - Melbourne",
+        "AccountName": "IBM AUSTRALIA LTD",
+        "GroupName": "CPE",
+        "CategoryName": "Activity - Productive",
+        "TypeName": "CPE",
+        "Date": "2018-02-15",
+        "Duration": "00:30",
+        "IsProcessed": false
+      },
+      {
+        "ID": 90,
+        "UserID": 5,
+        "EmployeeID": "HENDERSA",
+        "SiteName": "MULGRAVE",
+        "BusinessUnitName": "Telstra Logistics - Melbourne",
+        "AccountName": "IBM AUSTRALIA LTD",
+        "GroupName": "CPE RASS",
+        "CategoryName": "Activity - Productive",
+        "TypeName": "CPE RASS",
+        "Date": "2018-03-14",
+        "Duration": null,
+        "IsProcessed": false
+      }
+    ];
+
+    // Grouping function
+    function groupActivitiesByEmployeeID(activities) {
+      const grouped = activities.reduce((acc, item) => {
+        (acc[item.EmployeeID] ||= []).push(item);
+        return acc;
+      }, {});
+      return Object.entries(grouped);
+    }
+
+    // Triggered by button
+    function toggleGroupedActivities() {
+      const output = document.getElementById("output");
+      const button = document.getElementById("toggleButton");
+
+      if (button.textContent === "Run") {
+        const result = groupActivitiesByEmployeeID(activity);
+        output.textContent = JSON.stringify(result, null, 2);
+        button.textContent = "Hide";
+      } else {
+        output.textContent = "Click the button to see results here.";
+        button.textContent = "Run";
+      }
+    }
+  </script>
+</body>
+</html>
