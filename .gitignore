@@ -3,5 +3,9 @@
 # dependencies
 /node_modules
 
+# .vs CEVA
+/.vs/CEVA
+
 # copilotIndices
-/CopilotIndices
+/.vs/CEVA/CopilotIndices
+
