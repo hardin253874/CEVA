@@ -3,9 +3,5 @@
 # dependencies
 /node_modules
 
-# .vs CEVA
-/.vs/CEVA
-
-# copilotIndices
-/.vs/CEVA/CopilotIndices
-
+# .vs CEVA - ignore all Visual Studio files and folders
+/.vs/CEVA/
